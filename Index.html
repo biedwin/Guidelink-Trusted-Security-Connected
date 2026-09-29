@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Guidelink - Trusted Security Connected</title>
+</head>
+<body>
+   <header class="navbar">
+<a href="#" class="brand">
+<img src="./Assets/logo.png" alt="Guidelink logo">
+<span>Guide<span><Link></span></span>
+</a>
+<nav class="nav-links">
+<a href="#how-it-works">How-it-works</a>
+<a href="#companies">Security Companies</a>
+<a href="#safety">Safety</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="nav-actions">
+<button class="btn btn-outline" onclick="openAuth('login')">Log In</button>
+      <button class="btn btn-primary" onclick="openAuth('register')">Get Started</button>
+</div>
+ <button class="menu-btn" onclick="toggleMenu()">☰</button>
+   </header>
+   <main>
+ <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow"><span>●</span> Security you can connect to</div>
+        <h1>Find trusted security.<br><span>Stay protected.</span></h1>
+        <p>
+          GuideLink connects individuals, families and businesses with
+          verified private security companies across Nigeria.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-large" onclick="openAuth('register')">Get Started</button>
+          <button class="btn btn-light btn-large" onclick="scrollToSection('companies')">Find a Security Company</button>
+        </div>
+         <div class="trust-row">
+          <div><strong>Verified</strong><small>Company profiles</small></div>
+          <div><strong>KYC</strong><small>User verification</small></div>
+          <div><strong>Secure</strong><small>Booking process</small></div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="shield">🛡️</div>
+        <div class="status"><span></span> GuideLink is active</div>
+        <h3>Your safety starts with the right connection.</h3>
+        <p>Compare registered security companies, view service terms and request security personnel.</p>
+        <div class="mini-card">
+          <div class="mini-icon">✓</div>
+           <div><strong>Verified Companies</strong><small>Licensed security providers</small></div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-icon">⌖</div>
+          <div><strong>Search by Location</strong><small>Find services around you</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section">
+      <div class="section-heading">
+        <span class="section-tag">HOW IT WORKS</span>
+        <h2>Simple for users. Professional for security companies.</h2>
+        <p>One platform with two clear experiences.</p>
+      </div>
+<div class="role-grid">
+        <article class="role-card user-role">
+          <div class="role-icon">👤</div>
+          <h3>I'm a User</h3>
+          <p>Register, complete KYC, search companies and request security services.</p>
+          <ul>
+            <li>Create your personal profile</li>
+            <li>Complete identity verification</li>
+            <li>Compare companies and prices</li>
+            <li>Review terms before booking</li>
+          </ul>
+          <button class="text-btn" onclick="openAuth('register-user')">Register as User →</button>
+        </article>
+
+        <article class="role-card company-role">
+          <div class="role-icon">🏢</div>
+          <h3>I'm a Security Company</h3>
+           <p>Register your licensed private security company and showcase your services.</p>
+          <ul>
+            <li>Company registration & verification</li>
+            <li>Upload company profile and documents</li>
+            <li>Set services, rates and terms</li>
+            <li>Receive customer requests</li>
+          </ul>
+          <button class="text-btn" onclick="openAuth('register-company')">Register Company →</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="companies" class="section companies-section">
+      <div class="section-heading left">
+        <span class="section-tag">SECURITY COMPANIES</span>
+        <h2>Find the right security service</h2>
+         <p>Search, compare and review company information before you make a request.</p>
+      </div>
+
+      <div class="search-box">
+        <input id="companySearch" type="search" placeholder="Search company, service or location..." oninput="filterCompanies()">
+        <select id="serviceFilter" onchange="filterCompanies()">
+          <option value="">All services</option>
+          <option value="guard">Security Guards</option>
+          <option value="event">Event Security</option>
+          <option value="estate">Estate Security</option>
+          <option value="escort">Escort Services</option>
+        </select>
+        <button class="btn btn-primary" onclick="filterCompanies()">Search</button>
+      </div>
+
+      <div id="companyGrid" class="company-grid">
+        <article class="company-card" data-search="shield secure lagos guard estate" data-service="guard estate">
+          <div class="company-top"><div class="company-logo">SS</div><span class="verified">✓ Verified</span></div>
+          <h3>Shield Secure Services</h3>
+          <p>Professional guarding and estate protection services.</p>
+          <div class="company-meta"><span>📍 Lagos</span><span>₦80,000+</span></div>
+          <button class="company-link" onclick="showCompany('Shield Secure Services')">View Profile →</button>
+        </article>
+
+        <article class="company-card" data-search="prime guard port harcourt event guard" data-service="guard event">
+          <div class="company-top"><div class="company-logo">PG</div><span class="verified">✓ Verified</span></div>
+          <h3>Prime Guard Nigeria</h3>
+          <p>Guarding personnel and event security solutions.</p>
+          <div class="company-meta"><span>📍 Port Harcourt</span><span>₦75,000+</span></div>
+          <button class="company-link" onclick="showCompany('Prime Guard Nigeria')">View Profile →</button>
+        </article>
+        article class="company-card" data-search="safe watch abuja escort estate security" data-service="estate escort">
+          <div class="company-top"><div class="company-logo">SW</div><span class="verified">✓ Verified</span></div>
+          <h3>SafeWatch Protection</h3>
+          <p>Residential protection, escort and access-control services.</p>
+          <div class="company-meta"><span>📍 Abuja</span><span>₦90,000+</span></div>
+          <button class="company-link" onclick="showCompany('SafeWatch Protection')">View Profile →</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="safety" class="safety-banner">
+      <div>
+        <span class="section-tag">TRUST & SAFETY</span>
+        <h2>Built around verification and transparency.</h2>
+        <p>GuideLink is designed so users can see company information, service terms and verification status before requesting a service.</p>
+      </div>
+       <div class="safety-points">
+        <div>✓ <span>KYC & identity checks</span></div>
+        <div>✓ <span>Company verification</span></div>
+        <div>✓ <span>Clear service terms</span></div>
+        <div>✓ <span>Reviews & complaints</span></div>
+      </div>
+    </section>
+   </main>
+   <footer id="Contact">
+ <div class="footer-brand">
+      <strong>Guide<span>Link</span></strong>
+      <p>Connecting people with trusted security services.</p>
+    </div>
+    <div>
+      <h4>Platform</h4>
+      <a href="#companies">Find Security</a>
+      <a href="#how-it-works">How It Works</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a href="#">Help Centre</a>
+      <a href="#">Safety Centre</a>
+      <a href="#">Contact</a>
+    </div>
+    <p class="copyright">© 2026 GuideLink. Demo interface.</p>
+   </footer>
+    <div id="authModal" class="modal">
+    <div class="modal-card">
+      <button class="close" onclick="closeAuth()">×</button>
+      <img src="guidelink-logo.png" alt="GuideLink" class="modal-logo">
+      <h2 id="authTitle">Welcome to GuideLink</h2>
+      <p id="authSubtitle">Choose how you want to use GuideLink.</p>
+
+      <div id="roleChooser" class="choice-grid">
+        <button onclick="showForm('user')"><span>👤</span><strong>User</strong><small>Find and hire security</small></button>
+        <button onclick="showForm('company')"><span>🏢</span><strong>Security Company</strong><small>Register your company</small></button>
+      </div>
+
+      <form id="userForm" class="auth-form" onsubmit="demoSubmit(event, 'User registration')">
+        <label>Full Name<input required type="text" placeholder="Enter your full name"></label>
+        <label>Email<input required type="email" placeholder="you@example.com"></label>
+        <label>Phone Number<input required type="tel" placeholder="+234"></label>
+        <label>Password<input required type="password" placeholder="Create a password"></label>
+        <div class="kyc-note">🔐 KYC verification will be required after registration.</div>
+        <button class="btn btn-primary full">Create User Account</button>
+      </form>
+
+      <form id="companyForm" class="auth-form" onsubmit="demoSubmit(event, 'Company registration')">
+        <label>Company Name<input required type="text" placeholder="Registered company name"></label>
+        <label>Business Email<input required type="email" placeholder="company@example.com"></label>
+        <label>Phone Number<input required type="tel" placeholder="+234"></label>
+        <label>Company Location<input required type="text" placeholder="City, State"></label>
+        <label>License / Registration Number<input required type="text" placeholder="Enter licence details"></label>
+        <label>Company Description<textarea placeholder="Describe your company and services"></textarea></label>
+        <div class="upload-box">📎 Upload company logo / profile image</div>
+        <div class="kyc-note">🔐 Company documents will require verification before the company can appear as verified.</div>
+        <button class="btn btn-primary full">Submit Company Registration</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+  
+
+
+ 
+
